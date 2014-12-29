@@ -4,6 +4,7 @@ Colchonet::Application.routes.draw do
     resources :rooms
     resources :users
     resource :confirmation, :only => [:show]
+    resource :user_sessions,:only => [:create, :new, :destroy]
   end
   match '/:locale' => 'home#index', :locale => LOCALES
   root :to => "home#index"
