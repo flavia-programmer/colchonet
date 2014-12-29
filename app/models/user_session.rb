@@ -14,6 +14,7 @@ class UserSession
 
 	def authenticate
 		user = User.authenticate(@email, @password)
+
 		if user.present?
 			store(user)
 		else
@@ -22,11 +23,5 @@ class UserSession
 		end
 	end
 
-	def store(user)
-		@session[:user_id] = user.id
-	end
 	
-	def persisted?
-		false
-	end
 end

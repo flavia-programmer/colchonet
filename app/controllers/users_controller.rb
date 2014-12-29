@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-
-	
   
   def show
     @user = User.find(params[:id])
@@ -36,4 +34,23 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+
+  def user_params
+    # Os "pontos" no final da linha não são opcionais!
+    params.
+      require(:user).
+      permit(:email, :full_name, :location, :password,
+             :password_confirmation, :bio)
+  end
+
+  def can_change
+    unless user_signed_in? && current_user == user
+      redirect_to user_path(params[:id])
+    end
+  end
+
+  def user
+    @user ||= User.find(params[:id])
+  end
 end
