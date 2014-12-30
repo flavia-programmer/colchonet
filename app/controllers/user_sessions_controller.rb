@@ -11,6 +11,9 @@ class UserSessionsController < ApplicationController
 			render :new
 		end
 	end
+	
 	def destroy
-	end
+    	user_session.destroy
+    	redirect_to root_path, notice: t('flash.notice.signed_out')
+  	end
 end

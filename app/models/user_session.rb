@@ -23,5 +23,4 @@ class UserSession
 		end
 	end
 
-	
 end
