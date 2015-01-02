@@ -23,4 +23,8 @@ class UserSession
 		end
 	end
 
+
+  def persisted?
+    false
+  end
 end
