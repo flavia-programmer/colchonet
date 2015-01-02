@@ -40,3 +40,4 @@ gem 'jquery-rails'
 gem "strong_parameters"
 
 gem 'thin'
+

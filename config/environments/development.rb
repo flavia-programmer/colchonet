@@ -33,7 +33,7 @@ Colchonet::Application.configure do
   config.assets.compress = false
 
   # Expands the lines which load the assets
-  config.assets.debug = true
+  config.assets.debug = false
 
   # Aponta o host para o ambiente de desenvolvimento
   config.action_mailer.default_url_options = {
