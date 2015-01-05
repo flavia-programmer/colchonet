@@ -24,26 +24,37 @@ class UserSession
 	#end
 
 	def authenticate!
-    puts @email
-    puts @password
+	    puts @email
+	    puts @password
 
-    user = User.authenticate(@email, @password)
+	    user = User.authenticate(@email, @password)
 
-    puts user
-    if user.present?
-      store(user)
-    else
-      errors.add(:base, :invalid_login)
-      false
-    end
-  end
+	    puts user
+	    if user.present?
+	      store(user)
+    	else
+      		errors.add(:base, :invalid_login)
+      		false
+    	end
+  	end
 
-  def store(user)
-    @session[:user_id] = user.id
-  end
+  	def store(user)
+    	@session[:user_id] = user.id
+  	end
 
+  	def current_user
+		User.find(@session[:user_id])
+  	end
 
-  def persisted?
-    false
-  end
+  	def user_signed_in?
+		@session[:user_id].present?
+	end
+
+	def destroy
+		@session[:user_id] = nil
+	end
+
+  	def persisted?
+    	false
+  	end
 end
