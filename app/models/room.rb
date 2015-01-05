@@ -1,9 +1,9 @@
 class Room < ActiveRecord::Base
 
 	  # É necessário definir o has_many primeiro!
-    has_many :reviews
+    has_many :reviews, :dependent => :destroy
     #junta todos os registros de avaliação que o usuário possui e, através desses registros, buscar os quartos.
-    has_many :reviewed_rooms, :through => :reviews, :source => :room #
+    #has_many :reviewed_rooms, :through => :reviews, :source => :room #
     belongs_to :user
 
   	attr_accessible :description, :location, :title
