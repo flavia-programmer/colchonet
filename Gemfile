@@ -42,3 +42,4 @@ gem "strong_parameters"
 gem 'thin'
 
 gem "letter_opener", :group => :development
+

@@ -12,16 +12,35 @@ class UserSession
 		@password = attributes[:password]
 	end
 
-	def authenticate
-		user = User.authenticate(@email, @password)
+	#def authenticate
+	#	user = User.authenticate(@email, @password)
 
-		if user.present?
-			store(user)
-		else
-			errors.add(:base, :invalid_login)
-			false
-		end
-	end
+	#	if user.present?
+	#		store(user)
+	#	else
+	#		errors.add(:base, :invalid_login)
+	#		false
+	#	end
+	#end
+
+	def authenticate!
+    puts @email
+    puts @password
+
+    user = User.authenticate(@email, @password)
+
+    puts user
+    if user.present?
+      store(user)
+    else
+      errors.add(:base, :invalid_login)
+      false
+    end
+  end
+
+  def store(user)
+    @session[:user_id] = user.id
+  end
 
 
   def persisted?

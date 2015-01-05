@@ -1,7 +1,7 @@
 pt-BR:
   general:
     form_error: Há erros no formulário, por favor verifique.
-  
+
   layout:
     rooms: Quartos
     signup: Cadastro
@@ -28,7 +28,7 @@ pt-BR:
           O Colcho.net é o lugar ideal para você alugar aquele quarto
           sobrando na sua casa e ainda conhecer gente do mundo inteiro.
 
-      confirm_link_html: 'Para você começar a usar o site, acesse o 
+      confirm_link_html: 'Para você começar a usar o site, acesse o
               link: %{link}'
       thanks_html: 'Obrigado por se cadastrar no %{link}.'
 
@@ -39,6 +39,8 @@ pt-BR:
     destroy: 'Você tem certeza que quer remover?'
     
   users:
+    confirmations:
+      success: Email confirmado com sucesso, obrigado!
     new:
       title: Cadastro
     edit:
