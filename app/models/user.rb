@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
 	has_many :rooms
+	has_many :reviews
 
 	attr_accessible :bio, :email, :full_name, :location, :password, :password_confirmation
 	validates_presence_of :email, :full_name, :location

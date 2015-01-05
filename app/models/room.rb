@@ -1,15 +1,20 @@
 class Room < ActiveRecord::Base
 
-	belongs_to :user
+	  # É necessário definir o has_many primeiro!
+    has_many :reviews
+    #junta todos os registros de avaliação que o usuário possui e, através desses registros, buscar os quartos.
+    has_many :reviewed_rooms, :through => :reviews, :source => :room #
+    belongs_to :user
 
   	attr_accessible :description, :location, :title
   	validates_presence_of :description, :location, :title
   	validates_length_of :description, :minimum => 30, :allow_blank => false
+  
   	def complete_name
 		"#{title}, #{location}"
-	end
+	 end
 
-	def self.most_recent
-        order(created_at: :desc)
-    end
+	 def self.most_recent
+    order(created_at: :desc)
+  end
 end
