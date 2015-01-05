@@ -46,8 +46,12 @@ class UserSession
 		User.find(@session[:user_id])
   	end
 
-  	def user_signed_in?
-		@session[:user_id].present?
+  	#def user_signed_in?
+		#@session[:user_id].present?
+	#end
+
+	def user_signed_in?
+		@session[:user_id].present? && User.exists?(@session[:user_id])
 	end
 
 	def destroy
