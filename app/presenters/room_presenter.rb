@@ -25,6 +25,14 @@ class RoomPresenter
 	def review_points
 		Review::POINTS
 	end
+
+	def stars
+		@room.reviews.stars
+	end
+	def total_reviews
+		@room.reviews.size
+	end
+
 	# render @room resulta na renderização da partial 'room'
 	def to_partial_path
 		'room'
