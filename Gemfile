@@ -43,3 +43,5 @@ gem 'thin'
 
 gem "letter_opener", :group => :development
 
+gem "font-awesome-rails", "~> 4.2.0"
+
