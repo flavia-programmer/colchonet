@@ -17,4 +17,15 @@ class Room < ActiveRecord::Base
 	 def self.most_recent
     order(created_at: :desc)
   end
+
+  def self.search(query)
+    if query.present?
+      where(['location LIKE :query OR
+      title LIKE :query OR
+      description LIKE :query', :query => "%#{query}%"])
+    else
+      scoped
+    end
+  end
+
 end

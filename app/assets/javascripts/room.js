@@ -6,11 +6,11 @@ $(function() {
   });
 
   $review.on('ajax:error', function() {
-    replaceButton(this, 'fa fa-times-circle', '#B94A48');
+    replaceButton(this, 'fa-times', '#B94A48');
   });
 
   $review.on('ajax:success', function() {
-    replaceButton(this, 'fa fa-check', '#468847');
+    replaceButton(this, 'fa-check', '#468847');
   });
 
   function replaceButton(container, icon_class, color) {
