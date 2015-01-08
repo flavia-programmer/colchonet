@@ -1,5 +1,7 @@
 class Room < ActiveRecord::Base
 
+    extend FriendlyId
+
 	  # É necessário definir o has_many primeiro!
     has_many :reviews, :dependent => :destroy
     #junta todos os registros de avaliação que o usuário possui e, através desses registros, buscar os quartos.
@@ -7,7 +9,9 @@ class Room < ActiveRecord::Base
     belongs_to :user
 
   	attr_accessible :description, :location, :title
-  	validates_presence_of :description, :location, :title
+  	validates_presence_of :title
+    validates_presence_of :slug
+    friendly_id :title, :use => [:slugged, :history]
   	validates_length_of :description, :minimum => 30, :allow_blank => false
   
   	def complete_name
