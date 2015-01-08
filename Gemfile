@@ -48,3 +48,7 @@ gem "font-awesome-rails", "~> 4.2.0"
 gem 'friendly_id'
 
 gem 'kaminari'
+
+gem 'carrierwave'
+
+gem 'rmagick'

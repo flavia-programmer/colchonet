@@ -8,12 +8,15 @@ class Room < ActiveRecord::Base
     #has_many :reviewed_rooms, :through => :reviews, :source => :room #
     belongs_to :user
 
-  	attr_accessible :description, :location, :title
+  	attr_accessible :description, :location, :title, :picture
   	validates_presence_of :title
     validates_presence_of :slug
     friendly_id :title, :use => [:slugged, :history]
   	validates_length_of :description, :minimum => 30, :allow_blank => false
   
+    mount_uploader :picture, PictureUploader
+    friendly_id :title, :use => [:slugged, :history]
+
   	def complete_name
 		"#{title}, #{location}"
 	 end

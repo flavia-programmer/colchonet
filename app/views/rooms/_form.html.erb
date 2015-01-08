@@ -22,6 +22,12 @@
     <%= f.text_area :description %>
     <%= error_tag @room, :description %>
   </p>
+
+  <p>
+    <%= f.label :picture %>
+    <%= f.file_field :picture %>
+    <%= error_tag @room, :picture %>
+  </p>
   
   <p>  <%= f.submit %></p>
   

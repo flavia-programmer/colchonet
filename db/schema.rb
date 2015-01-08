@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150108220506) do
+ActiveRecord::Schema.define(:version => 20150108232221) do
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20150108220506) do
     t.integer  "user_id"
     t.integer  "reviews_count"
     t.string   "slug"
+    t.string   "picture"
   end
 
   add_index "rooms", ["slug"], :name => "index_rooms_on_slug", :unique => true
