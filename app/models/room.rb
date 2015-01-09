@@ -11,11 +11,10 @@ class Room < ActiveRecord::Base
   	attr_accessible :description, :location, :title, :picture
   	validates_presence_of :title
     validates_presence_of :slug
-    friendly_id :title, :use => [:slugged, :history]
-  	validates_length_of :description, :minimum => 30, :allow_blank => false
+    validates_length_of :description, :minimum => 30, :allow_blank => false
   
     mount_uploader :picture, PictureUploader
-    friendly_id :title, :use => [:slugged, :history]
+    friendly_id :title, use: [:slugged, :history]
 
   	def complete_name
 		"#{title}, #{location}"
